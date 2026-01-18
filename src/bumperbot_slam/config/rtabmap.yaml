@@ -1,0 +1,25 @@
+rtabmap:
+  ros__parameters:
+    frame_id: "base_link"
+    approx_sync: !!bool true
+    RGBD/NeighborLinkRefining: 'true'
+    Reg/Strategy: '1'
+    subscribe_depth: !!bool true
+    subscribe_scan: !!bool true           # enable 2D LiDAR (if using)
+    subscribe_scan_cloud: !!bool false   # enable 3D LiDAR (optional)
+    subscribe_rgbd: true
+    subscribe_rgb: false
+    subscribe_depth: false
+    # rgb_topic: "/camera1/image/image"
+    # depth_topic: "/camera1/image/depth_image"
+    # camera_info_topic: "/camera1/image/camera_info"
+    scan_topic: "/lidar/scan"
+    # scan_cloud_topic: "/lidar/cloud/points"
+    qos: 1
+    rviz: !!bool true
+    imu_topic: "/imu"
+    wait_imu_to_init: !!bool true
+    topic_queue_size: 50
+    sync_queue_size: 50
+    rtabmapviz: true
+    approx_sync_max_interval: 0.01

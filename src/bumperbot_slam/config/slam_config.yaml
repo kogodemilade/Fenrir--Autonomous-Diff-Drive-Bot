@@ -1,0 +1,6 @@
+- ros_topic_name: "/lidar/cloud"
+  gz_topic_name: "/lidar/cloud"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+

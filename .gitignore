@@ -1,0 +1,10 @@
+*.log
+.venv/
+.vscode/
+install/
+build/
+log/
+src/rtabmap/
+src/rtabmap_ros/
+.vscode_backup/
+status.txt
