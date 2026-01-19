@@ -15,27 +15,27 @@ This package contains the urdf files for the robot, alongsides the gazebo config
 This package also contains some rviz configurations, which aren't of utmost importance but saves everyone a few minutes each time Rviz is launched.
 This package, like every other package in the ws, contains launch files. One for gazebo, and the other for Rviz. The display launch file launches gazebo, the other launches Rviz. Changing which World (or setting) is launched must be done manually for now, but will be changed to allow easy switching through launch arguments in the near future.
 
-**Examples (bumperbot_examples)**
+**Examples (bumperbot_examples)**:
 These are example scripts for people who want to check simplified examples of many of the utilities of ros utilized in this package.
 If you're starting your ros journey, feel free to take a look at this package first.
 
-**Controller (bumperbot_controller)**
+**Controller (bumperbot_controller)**:
 This package handles translating the commands from the input to the velocities of the wheel based on the dynamics of the bot using twist stamped messages (A communication structure in ros2). It also implements a 'noisy controller' that adds Gaussian noise to simulate real sensor noise. No feed back control has been implemented yet. 
 
-**Local Localization (bumperbot_localization)**
+**Local Localization (bumperbot_localization)**:
 This package deals with **local localization**. Local localization refers to estimating the position of a bot based on integrating its movements. In the package, a stochastic approach is used using an Extended Kalman Filter. This outputs the calculated position as a probability (mean), and also gives the certainity of its calculation (variance).
 
-**Visualization (bumperbot_visualization)**
+**Visualization (bumperbot_visualization)**:
 This package handles the vision model, YOLO11, which runs object detection. (No segmentation). Currently, I'm thinking of creating another model through transfer learning from the yolo model for better detection of objects more likely to be seen by Fenrir, or upgrading to the m/l models.
 
-**Sensor Reframing and Bridging (bumperbot_bridges)**
+**Sensor Reframing and Bridging (bumperbot_bridges)**:
 For the sake of Rtabmap (a SLAM package), some topics from the lidar and camera sensors had to have their header's frame ID changed and then republished. Some had to be bridged from Gazebo. Sensors are configured in gazebo and then 'bridged' to ros using ros_gz_bridge, else ROS wouldn't have access to those topics. It used to be in visualization, but sometimes I had to test slam without running the visualization package, so I created a new package entirely. I assume there are better ways of solving this problem, which I receive with open arms.
 
-**SLAM (bumperbot_slam)**
+**SLAM (bumperbot_slam)**:
 SLAM (Simultaneous Localization and Mapping) refers to 2 things. The first is Mapping. That is, building a map of the environment from sensor scans. Lidars are typically the primary sensors used for this task, but rgbd (d for depth) camera sensors are also used. In this project, both have been combined to create maps. Localization refers to estimating where the robot is with the map being built as a reference. For example, imagine Fenrir was dropped in a bedroom. Mapping answers the question 'What is the geometry of this room (including objects)?' while localization answers 'Where am I within this geometry?'.
 **Rtabmap** is an Open source package that works well with ROS2. It handles all the terrorizing math and physics and provides a clean API which was used in this project.
 
-**Navigation (bumperbot_nav)**
+**Navigation (bumperbot_nav)**:
 This takes the map from the slam package and actually navigates through the map when given a task (or 'Goal'). It uses Behaviour Trees (BTs) as well as other sensor data for decision-making. Uses Ros2's 'Nav2' package internally. Currently still in development.
 #
 
