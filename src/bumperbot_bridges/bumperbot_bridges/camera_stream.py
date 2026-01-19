@@ -7,18 +7,18 @@ import cv2
 class CameraStream(Node):
     def __init__(self):
         super().__init__('camera_stream')
-        self.sub = self.create_subscription(Image, '/camera1/image/image', self.cb, 10)
-        self.depth_sub = self.create_subscription(Image, '/camera1/image/depth_image', self.dcb, 10)
-        self.info_sub = self.create_subscription(CameraInfo, '/camera1/image/camera_info', self.icb, 10)
-        self.lidar_sub = self.create_subscription(LaserScan, '/lidar/cloud', self.lidarcb, 10)
-        self.lidar_3D_sub = self.create_subscription(PointCloud2, '/lidar/cloud/points', self.lidar3Dcb, 10)
+        self.sub = self.create_subscription(Image, '/camera1/image/image', self.cb, 100)
+        self.depth_sub = self.create_subscription(Image, '/camera1/image/depth_image', self.dcb, 100)
+        self.info_sub = self.create_subscription(CameraInfo, '/camera1/image/camera_info', self.icb, 100)
+        self.lidar_sub = self.create_subscription(LaserScan, '/lidar/cloud', self.lidarcb, 100)
+        self.lidar_3D_sub = self.create_subscription(PointCloud2, '/lidar/cloud/points', self.lidar3Dcb, 100)
 
-        self.pub = self.create_publisher(Image, '/camera1/preprocessed_out', 10)
-        self.repub = self.create_publisher(Image, '/camera1/image', 10)
-        self.depth_repub = self.create_publisher(Image, '/camera1/depth_image', 10)
-        self.info_repub = self.create_publisher(CameraInfo, '/camera1/camera_info', 10)
-        self.lidar_repub = self.create_publisher(LaserScan, '/lidar/scan', 10)
-        self.lidar_3D_repub = self.create_publisher(PointCloud2, '/lidar/scan/points', 10)
+        self.pub = self.create_publisher(Image, '/camera1/preprocessed_out', 100)
+        self.repub = self.create_publisher(Image, '/camera1/image', 100)
+        self.depth_repub = self.create_publisher(Image, '/camera1/depth_image', 100)
+        self.info_repub = self.create_publisher(CameraInfo, '/camera1/camera_info', 100)
+        self.lidar_repub = self.create_publisher(LaserScan, '/lidar/scan', 100)
+        self.lidar_3D_repub = self.create_publisher(PointCloud2, '/lidar/scan/points', 100)
         self.br = CvBridge()
 
     def cb(self, msg):
