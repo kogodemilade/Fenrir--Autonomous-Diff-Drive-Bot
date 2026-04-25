@@ -80,7 +80,7 @@ class SimpleController(Node):
             dt = current_time - self.prev_time
 
             if dt.nanoseconds > 1000:
-                # your update logic
+                # update logic
                 self.prev_time = current_time
             else:
                 # self.get_logger().warn("Same timestamp — skipping")

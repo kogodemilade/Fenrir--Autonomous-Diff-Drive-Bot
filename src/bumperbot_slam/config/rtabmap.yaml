@@ -1,11 +1,10 @@
 rtabmap:
   ros__parameters:
     frame_id: "base_link"
-    approx_sync: !!bool true
+    approx_sync: !!bool false
     RGBD/NeighborLinkRefining: 'true'
     Reg/Strategy: '1'
-    subscribe_depth: !!bool true
-    subscribe_scan: !!bool true           # enable 2D LiDAR (if using)
+    subscribe_scan: !!bool false           # enable 2D LiDAR (if using)
     subscribe_scan_cloud: !!bool false   # enable 3D LiDAR (optional)
     subscribe_rgbd: true
     subscribe_rgb: false
@@ -13,7 +12,7 @@ rtabmap:
     # rgb_topic: "/camera1/image/image"
     # depth_topic: "/camera1/image/depth_image"
     # camera_info_topic: "/camera1/image/camera_info"
-    scan_topic: "/lidar/scan"
+    # scan_topic: "/lidar/scan"
     # scan_cloud_topic: "/lidar/cloud/points"
     qos: 1
     rviz: !!bool true
@@ -22,4 +21,22 @@ rtabmap:
     topic_queue_size: 50
     sync_queue_size: 50
     rtabmapviz: true
-    approx_sync_max_interval: 0.01
+    approx_sync_max_interval: 0.1
+    Rtabmap/DetectionRate: '0.5'    # process every 2 seconds instead of 1
+    Mem/ImagePreDecimation: '4'     # halve image resolution before processing
+    Mem/ImagePostDecimation: '4'
+    Rtabmap/TimeThr: '0'        # no time limit on processing
+    odom_sensor_sync: false
+    tf_tolerance: 1.0           # increase from default 0.1
+    tf_delay: 0.5
+    Kp/MaxFeatures: '200'           # limit feature extraction, default 400
+    Vis/MaxFeatures: '200'
+    Odom/FilteringStrategy: '1'
+    Odom/ParticleSize: '400'
+    RGBD/MaxLocalLoopClosuresPerIteration: '1'
+    Reg/Force3DoF: 'true'          # ground robot, constrain to 2D
+    RGBD/LinearUpdate: '0.1'       # only add node after 10cm movement
+    RGBD/AngularUpdate: '0.1'      # or 0.1 rad rotation
+    Rtabmap/MaxRetrieved: '1'
+    Optimizer/Robust: 'true'
+    Optimizer/Strategy: '1'
