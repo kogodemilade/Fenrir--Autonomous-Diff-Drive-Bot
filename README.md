@@ -44,7 +44,7 @@ This takes the map from the slam package and actually navigates through the map 
 **Prerequisites**
 1) This was created and tested on an Ubuntu 24.04 OS, using ROS2 jazzy. Using another version of ROS2 or a different operating system may cause errors I'm not familiar with. If so, feel free to report as an Issue on this repo.
 2) Rtabmap and rtabmap_ros are essential packages I didn't include here and must be installed separately. They should be moved into the src/ directory after installation. It is not necessary if navigation and slam aren't needed. Installation instructions can be found [here](https://github.com/introlab/rtabmap/wiki/installation).
-3) Running gazebo with lidars consumes a lot of compute. If running with limited compute (no GPU like me), a distributed computing solution may work, with a raspberry pi or Jetson Nano, or a second pc. If none are available, manually disabling the Lidar sensor is your best bet. Unfortunately that would mean SLAM and navigation wouldnt work. 
+3) Running gazebo with lidars consumes a lot of compute. If running with limited compute (no GPU like me), a distributed computing solution may work, with a raspberry pi or Jetson Nano, or a second pc. If none are available, manually disabling the Lidar sensor is your best bet (this is now the default, the slam config no longer uses Lidar. This point will soon be removed or changed).
 
 **Installation**
 1) Create a workspace (directory/folder) for the codebase. 
