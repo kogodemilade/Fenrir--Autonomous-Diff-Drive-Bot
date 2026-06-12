@@ -89,7 +89,7 @@ In practice, sourcing the current project is usually enough, although I've found
 I suggest creating an [alias](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias) since this commands are used very frquently.
 
 All packages must run in separate terminal tabs, so I recommend Terminator, which allows splitting tabs using Ctrl+shift+E (horizontal split) and Ctrl+shift+O (Vertical splits). This makes it easy to monitor multiple processes in prallel.
-All packages can be launched using
+All packages can be launched using ('app' is a placeholder)
 ```bash 
 ros2 launch bumperbot_<pkg> app.launch.py
 ```
