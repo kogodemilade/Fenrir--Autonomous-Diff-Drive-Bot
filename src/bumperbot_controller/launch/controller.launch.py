@@ -89,17 +89,35 @@ def generate_launch_description():
             Node(
                 package='controller_manager',
                 executable='spawner',
-                arguments=['simple_velocity_controller', '--controller-manager', '/controller_manager'],
+                arguments=['bumperbot_controller', '--controller-manager', '/controller_manager'],
                 parameters=[{'use_sim_time': True}]
             ),
 
-            Node(
-                package="bumperbot_controller",
-                executable="simple_controller",
-                parameters=[{"wheel_radius": wheel_radius, "wheel_sep": wheel_sep}, {'use_sim_time': True}]
-            )
+            # Node(
+            #     package="bumperbot_controller",
+            #     executable="simple_controller",
+            #     parameters=[{"wheel_radius": wheel_radius, "wheel_sep": wheel_sep}, {'use_sim_time': True}]
+            # )
         ]
     )
+
+    # complex_controller = GroupAction(
+    #     condition=UnlessCondition(use_simple_controller),
+    #     actions=[
+    #         Node(
+    #             package='controller_manager',
+    #             executable='spawner',
+    #             arguments=['bumperbot_controller', '--controller-manager', '/controller_manager'],
+    #             parameters=[{'use_sim_time': True}]
+    #         ),
+
+    #         Node(
+    #             package="bumperbot_controller",
+    #             executable="simple_controller",
+    #             parameters=[{"wheel_radius": wheel_radius, "wheel_sep": wheel_sep}, {'use_sim_time': True}]
+    #         )
+    #     ]
+    # )
 
     # noisy_controller_spawner = OpaqueFunction(function=noisy_controller)
     noisy_controller_ = GroupAction(

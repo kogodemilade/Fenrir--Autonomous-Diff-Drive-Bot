@@ -1,7 +1,7 @@
 rtabmap:
   ros__parameters:
     frame_id: "base_link"
-    approx_sync: !!bool false
+    approx_sync: !!bool true
     RGBD/NeighborLinkRefining: 'true'
     Reg/Strategy: '1'
     subscribe_scan: !!bool false           # enable 2D LiDAR (if using)
@@ -22,21 +22,32 @@ rtabmap:
     sync_queue_size: 50
     rtabmapviz: true
     approx_sync_max_interval: 0.1
-    Rtabmap/DetectionRate: '0.5'    # process every 2 seconds instead of 1
-    Mem/ImagePreDecimation: '4'     # halve image resolution before processing
-    Mem/ImagePostDecimation: '4'
+    Rtabmap/DetectionRate: '1'    
+    Mem/ImagePreDecimation: '2'     # halve image resolution before processing
+    Mem/ImagePostDecimation: '2'
     Rtabmap/TimeThr: '0'        # no time limit on processing
     odom_sensor_sync: false
-    tf_tolerance: 1.0           # increase from default 0.1
-    tf_delay: 0.5
-    Kp/MaxFeatures: '200'           # limit feature extraction, default 400
+    tf_tolerance: 0.3           # increase from default 0.1
+    tf_delay: 0.1
     Vis/MaxFeatures: '200'
     Odom/FilteringStrategy: '1'
     Odom/ParticleSize: '400'
-    RGBD/MaxLocalLoopClosuresPerIteration: '1'
+    RGBD/MaxLocalLoopClosuresPerIteration: '3'
     Reg/Force3DoF: 'true'          # ground robot, constrain to 2D
-    RGBD/LinearUpdate: '0.1'       # only add node after 10cm movement
-    RGBD/AngularUpdate: '0.1'      # or 0.1 rad rotation
-    Rtabmap/MaxRetrieved: '1'
+    RGBD/LinearUpdate: '0.05'       # only add node after 10cm movement
+    RGBD/AngularUpdate: '0.05'      # or 0.1 rad rotation
+    Rtabmap/MaxRetrieved: '5'
     Optimizer/Robust: 'true'
     Optimizer/Strategy: '1'
+    Rtabmap/LoopThr: "0.11"        # increase to make loop closure less aggressive
+    Mem/RehearsalSimilarity: "0.45"
+
+    # Increase these to make RTAB-Map more tolerant of rotation
+    Odom/RoiRatios: "0.0 0.0 0.0 0.0"
+    Odom/MinInliers: "10"          # reduce from default if losing tracking
+    Odom/MaxSpeed: "0.0"           # 0 means no limit
+    Odom/MaxRotSpeed: "0.0"        # 0 means no limit — important for rotation
+
+    # Visual odometry specific
+    OdomF2M/MaxSize: "2000"
+    OdomF2M/MinInliers: "10"

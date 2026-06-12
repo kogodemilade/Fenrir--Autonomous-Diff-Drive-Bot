@@ -91,7 +91,7 @@ def generate_launch_description():
     ld.add_action(sim_time_parameter)
     ld.add_action(model_arg)
     ld.add_action(gzserver_cmd)
-    # ld.add_action(gzclient_cmd)
+    ld.add_action(gzclient_cmd)
     ld.add_action(set_env_vars_resources)
     ld.add_action(robot_state_publisher)
     ld.add_action(spawn_robot)
