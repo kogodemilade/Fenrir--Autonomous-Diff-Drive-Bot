@@ -18,10 +18,6 @@ This package contains the urdf files for the robot, alongsides the gazebo config
 This package also contains some rviz configurations, which aren't of utmost importance but saves everyone a few minutes each time Rviz is launched.
 This package, like every other package in the ws, contains launch files. One for gazebo, and the other for Rviz. The display launch file launches Rviz, the other launches gazebo. Changing which World (or setting) is launched in gazebo must be done manually for now, but will be changed to allow easy switching through launch arguments in the near future.
 
-**Examples (bumperbot_examples)**:
-These are example scripts for people who want to check simplified examples of many of the utilities of ros utilized in this package.
-If you're starting your ros journey, feel free to take a look at this package first.
-
 **Controller (bumperbot_controller)**:
 This package handles translating the commands from the input to the velocities of the wheel based on the dynamics of the bot using twist stamped messages (A communication structure in ros2). It also implements a 'noisy controller' that adds Gaussian noise to simulate real sensor noise. No feed back control has been implemented yet. 
 
