@@ -19,13 +19,13 @@ def generate_launch_description():
     sim_time_parameter = SetParameter(name='use_sim_time', value=True)
 
     pkg_share = get_package_share_directory('bumperbot_slam')
-    # bridge_config_path = os.path.join(pkg_share, 'config', 'slam_config.yaml')
+    bridge_config_path = os.path.join(pkg_share, 'config', 'slam_config.yaml')
     rtabmap_config_path = os.path.join(pkg_share, 'config', 'rtabmap.yaml')
 
-    # ros_gz_br = RosGzBridge(
-    #     bridge_name='slam_bridge',
-    #     config_file=bridge_config_path,
-    # )
+    ros_gz_br = RosGzBridge(
+        bridge_name='slam_bridge',
+        config_file=bridge_config_path,
+    )
 
     rgbd_sync_container = ComposableNodeContainer(
         name='rgbd_sync_container',
@@ -63,7 +63,7 @@ def generate_launch_description():
                 remappings=[
                     ('rgbd_image', '/rgbd_image'),
                     ('odom',       '/bumperbot_controller/odom'),
-                    # ('scan',       '/lidar/scan'),
+                    ('scan_cloud',       '/lidar/cloud/points'),
                 ],
             ),
 

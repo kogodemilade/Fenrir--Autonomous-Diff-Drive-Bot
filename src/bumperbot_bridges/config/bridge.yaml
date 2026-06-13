@@ -10,11 +10,11 @@
   gz_type_name: "gz.msgs.CameraInfo"
   direction: GZ_TO_ROS
 
-# - ros_topic_name: "/lidar/cloud/points"
-#   gz_topic_name: "/lidar/cloud/points"
-#   ros_type_name: "sensor_msgs/msg/PointCloud2"
-#   gz_type_name: "gz.msgs.PointCloudPacked"
-#   direction: GZ_TO_ROS
+- ros_topic_name: "/lidar/cloud/points"
+  gz_topic_name: "/lidar/cloud/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
 
 
 - ros_topic_name: "camera1/image/depth_image"
@@ -23,3 +23,17 @@
   gz_type_name: "gz.msgs.Image"
   frame_id: camera_link
   direction: GZ_TO_ROS
+
+
+- ros_topic_name: "/lidar/cloud"
+  gz_topic_name: "/lidar/cloud"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  direction: GZ_TO_ROS
+  ros_qos_override:
+    reliability: best_effort
+    durability: volatile
+    history: keep_last
+    depth: 5
+
+

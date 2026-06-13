@@ -12,14 +12,12 @@ def generate_launch_description():
         description='Use simulation (Gazebo) clock if true'
     )
     
-    # Get the path to bridge.yaml
     bridge_config = PathJoinSubstitution([
         FindPackageShare('bumperbot_bridges'),
         'config',
         'bridge.yaml'
     ])
     
-    # Ros GZ Bridge node
     bridge_node = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -32,7 +30,6 @@ def generate_launch_description():
         arguments=['--ros-args', '--log-level', 'info']
     )
     
-    # Camera stream node
     camera_node = Node(
         package='bumperbot_bridges',
         executable='camera_stream',

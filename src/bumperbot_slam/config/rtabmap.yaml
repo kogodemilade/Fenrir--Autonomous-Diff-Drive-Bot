@@ -4,8 +4,8 @@ rtabmap:
     approx_sync: !!bool true
     RGBD/NeighborLinkRefining: 'true'
     Reg/Strategy: '1'
-    subscribe_scan: !!bool false           # enable 2D LiDAR (if using)
-    subscribe_scan_cloud: !!bool false   # enable 3D LiDAR (optional)
+    subscribe_scan: !!bool false           # enable 2D LiDAR
+    subscribe_scan_cloud: !!bool true   # enable 3D LiDAR 
     subscribe_rgbd: true
     subscribe_rgb: false
     subscribe_depth: false
@@ -23,8 +23,8 @@ rtabmap:
     rtabmapviz: true
     approx_sync_max_interval: 0.1
     Rtabmap/DetectionRate: '1'    
-    Mem/ImagePreDecimation: '2'     # halve image resolution before processing
-    Mem/ImagePostDecimation: '2'
+    Mem/ImagePreDecimation: '1'     # halve image resolution before processing
+    Mem/ImagePostDecimation: '1'
     Rtabmap/TimeThr: '0'        # no time limit on processing
     odom_sensor_sync: false
     tf_tolerance: 0.3           # increase from default 0.1
@@ -51,3 +51,7 @@ rtabmap:
     # Visual odometry specific
     OdomF2M/MaxSize: "2000"
     OdomF2M/MinInliers: "10"
+
+    Grid/RangeMin: "0.2"
+    Grid/MaxObstacleHeight: "5.0"
+    Grid/MinGroundHeight: "-0.1"
