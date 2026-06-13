@@ -19,11 +19,11 @@ ament-xmllint==0.17.2
 angles==1.16.0
 b-u==0.0.0
 builtin-interfaces==2.0.2
-bumperbot-controller==0.0.0
-bumperbot-exp==0.0.0
-bumperbot-localization==0.0.0
-bumperbot-msgs==0.0.0
-bumperbot-utils==0.0.0
+fenrir-controller==0.0.0
+fenrir-exp==0.0.0
+fenrir-localization==0.0.0
+fenrir-msgs==0.0.0
+fenrir-utils==0.0.0
 certifi==2025.7.14
 charset-normalizer==3.4.2
 composition-interfaces==2.0.2
