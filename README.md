@@ -8,7 +8,7 @@ The goal of this project is a differential-drive robot with autonomous navigatio
 Fenrir, the name I've given this bot (I'm a fan of Norse Mythology), utilizes both Lidar and rgbd cameras for precise SLAM mapping, and a YOLO model for visualization. 
 This project started from a udemy tutorial by [Antonio Brandi](https://www.udemy.com/course/self-driving-and-ros-2-learn-by-doing-odometry-control/). It has then since grown with many additions and optimizations. I strongly encourage beginners and intermediates to check out his courses; he has courses on mobile robots as well as manipulators. This is purely created for research and learning and is not a commercial product.
 
-Each package serves a distinct purpose, which can be inferred by name. For the sake of eliminating ambiguity, it shall be explained below. For Installation instructions, [Click here (or find below)](#installation).
+Each package serves a distinct purpose, which is identifiable by its name. Each package is explained below. For Installation instructions, [Click here (or find below)](#installation).
 #
 
 <a name=packages></a>
