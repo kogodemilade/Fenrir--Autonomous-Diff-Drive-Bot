@@ -3,7 +3,7 @@ An Autonomous differential drive project in ROS 2.
 
 The goal of this project is a differential-drive robot with autonomous navigation, such that goals can be input through the ROS Nav2 package and the robot executes based on its behaviour tree configuration. In the future, goals would be input using natural language and processed through an LLM.
 Fenrir, the name I've given this bot (I'm a fan of Norse Mythology), utilizes both Lidar and rgbd cameras for precise SLAM mapping, and a YOLO model for visualization. 
-This project started from a udemy tutorial by Antonio Brandi. It has then since grown with many additions and optimizations. I encourage beginners to check out his courses. This is purely created for research and learning and is not a commercial product.
+This project started from a udemy tutorial by [Antonio Brandi](https://www.udemy.com/course/self-driving-and-ros-2-learn-by-doing-odometry-control/). It has then since grown with many additions and optimizations. I encourage beginners to check out his courses. This is purely created for research and learning and is not a commercial product.
 
 Each package serves a distinct purpose, which can be inferred by name. For the sake of eliminating ambiguity, it shall be explained below. For Installation instructions, [Click here (or find below)](#installation).
 #
