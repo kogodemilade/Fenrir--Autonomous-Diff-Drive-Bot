@@ -8,5 +8,3 @@
     durability: volatile
     history: keep_last
     depth: 5
-
-

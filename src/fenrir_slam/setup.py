@@ -26,7 +26,6 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'diff_checker = fenrir_slam.diff_checker:main',
         ],
     },
 )

@@ -21,6 +21,7 @@ def generate_launch_description():
     pkg_share = get_package_share_directory('fenrir_slam')
     bridge_config_path = os.path.join(pkg_share, 'config', 'slam_config.yaml')
     rtabmap_config_path = os.path.join(pkg_share, 'config', 'rtabmap.yaml')
+    pcloud_to_ls_path = os.path.join(pkg_share, 'config', 'pointcloud_to_ls.yaml')
 
     ros_gz_br = RosGzBridge(
         bridge_name='slam_bridge',
@@ -71,12 +72,16 @@ def generate_launch_description():
         output='screen'
     )
 
-    diffchecker = Node(
-        package='fenrir_slam',
-        executable='diff_checker',
-        name='diff_node',
-        output='screen'
-    )
+    pcloud_to_ls = Node(
+    package="pointcloud_to_laserscan",
+    executable="pointcloud_to_laserscan_node",
+    name="pointcloud_to_laserscan",
+    parameters=[pcloud_to_ls_path],
+    remappings=[
+        ("cloud_in", "/lidar/cloud/points"),
+        ("scan", "/scan"),
+    ],
+)
 
     # log_config_path = LogInfo(msg=bridge_config_path)
 
@@ -86,5 +91,5 @@ def generate_launch_description():
         # log_config_path,
         # ros_gz_br,
         rgbd_sync_container,
-        # diffchecker,
+        pcloud_to_ls
     ])

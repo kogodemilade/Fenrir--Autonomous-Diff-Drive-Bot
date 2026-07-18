@@ -1,16 +1,26 @@
-joy_teleop:
+teleop_twist_joy:
   ros__parameters:
-    move:
-      type: topic
-      interface_type: geometry_msgs/msg/TwistStamped
-      topic_name: fenrir_controller/cmd_vel
-      deadman_buttons: [5]
-      axis_mappings: 
-        twist-linear-x:
-          axis: 1
-          scale: 1.0
-          offset: 0.0
-        twist-angular-z:
-          axis: 3
-          scale: 1.0
-          offset: 0.0
+    require_enable_button: true
+    enable_button: 1 #Button on ps5 pad: O
+    enable_turbo_button: -1
+
+    axis_linear:
+      x: 1
+
+    scale_linear:
+      x: 1.0
+
+    scale_linear_turbo:
+      x: 1.0
+
+    axis_angular:
+      yaw: 3
+
+    scale_angular:
+      yaw: 1.0
+
+    scale_angular_turbo:
+      yaw: 1.0
+
+    publish_stamped_twist: true
+    frame: base_link

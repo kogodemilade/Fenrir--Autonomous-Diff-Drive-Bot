@@ -207,7 +207,7 @@
   <joint name="lidar_joint" type="fixed">
     <parent link="base_link"/>
     <child link="lidar_link"/>
-    <origin xyz="0.1 0 0.05" rpy="0 0 0"/>
+    <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
   </joint>
 
   <link name="lidar_link">
@@ -218,11 +218,5 @@
                iyy="8.59662482954888E-09" iyz="7.52375112767959E-12"
                izz="2.30279421279312E-08" />
     </inertial>
-    <collision>
-      <origin xyz= "0 0 0" rpy= "0 0 0"/>
-      <geometry>
-        <sphere radius= '0.05'/>
-      </geometry>
-    </collision>
   </link>
 </robot>

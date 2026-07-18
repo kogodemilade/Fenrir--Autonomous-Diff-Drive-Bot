@@ -14,10 +14,14 @@ def generate_launch_description():
     )
 
     joy_teleop = Node(
-        package="joy_teleop",
-        executable="joy_teleop",
-        parameters=[teleop_path]
-    )
+    package="teleop_twist_joy",
+    executable="teleop_node",
+    name="teleop_twist_joy",
+    parameters=[teleop_path],
+    remappings=[
+        ("cmd_vel", "/fenrir_controller/cmd_vel"),
+    ],
+)
 
     ld = LaunchDescription()
     ld.add_action(joy_node)
