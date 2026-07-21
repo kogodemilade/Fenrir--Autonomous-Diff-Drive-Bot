@@ -18,6 +18,9 @@ def generate_launch_description():
     package="nav2_controller",
     executable="controller_server",
     parameters=[params_file],
+    remappings=[
+        ('cmd_vel', '/fenrir_controller/cmd_vel')
+    ],
     )
 
     planner = Node(
