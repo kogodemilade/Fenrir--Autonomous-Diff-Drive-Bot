@@ -104,18 +104,8 @@
               <property key="y" type="double">0</property>
               <property key="width" type="double">400</property>
               <property key="height" type="double">375</property>
-              <property key="state" type="string">docked_collapsed</property>
-          </gz-gui>
-      </plugin>
-      <plugin filename="Teleop" name="Teleop">
-          <gz-gui>
-              <property key="x" type="double">0</property>
-              <property key="y" type="double">0</property>
-              <property key="width" type="double">400</property>
-              <property key="height" type="double">900</property>
               <property key="state" type="string">docked</property>
           </gz-gui>
-          <topic>/model/tugbot/cmd_vel</topic>
       </plugin>
     </gui>
 

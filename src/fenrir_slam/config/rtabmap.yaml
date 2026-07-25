@@ -55,3 +55,4 @@ rtabmap:
     Grid/RangeMin: "0.2"
     Grid/MaxObstacleHeight: "5.0"
     Grid/MinGroundHeight: "-0.2"
+    Grid/RayTracing: "true"
